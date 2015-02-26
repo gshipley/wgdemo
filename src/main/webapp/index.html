@@ -32,7 +32,6 @@
 </head>
 <body>
 	<h1 id="title">Walgreens</h1>
-    <img src="images/logo.png"/>
 	<div id="map"></div>
 	<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script> 
 	<script>
@@ -45,6 +44,10 @@
 			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 		}).addTo(map);
 
+        var imageUrl = 'http://walgreens-onpaas.rhcloud.com/images/logo.png',
+                imageBounds = [[40.712216, -74.22655], [40.773941, -74.12544]];
+
+        L.imageOverlay(imageUrl, imageBounds).addTo(map);
 		
 
 		function getPins(e){	
