@@ -1,3 +1,7 @@
-The OpenShift `jbosseap` cartridge documentation can be found at:
+Sample application for the book "Learning OpenShift"
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#jbosseap
+To try this application out, enter in the following URL which will allow you to deploy this applicaiton on OpenShift Online:
+
+http://goo.gl/pwXN5D
+
+
