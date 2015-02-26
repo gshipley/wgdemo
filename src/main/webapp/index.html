@@ -66,10 +66,20 @@
 			for (var i = 0; i < data.length; i++){
 				store = data[i];
 				var popupInformation = "<b>" + store.address + "</b></br>" + store.phone + "</br>Clinic:" + store.hasClinic + "</br>24Hours: " + store.is24Hours;
-                if(store.hasClinic === "Y") {
-                    markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: clinicIcon}).bindPopup(popupInformation);
+                if(store.hasClinic === "Y" ) {
+                    if(store.is24Hours === "Y") {
+                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: greenClinicIcon}).bindPopup(popupInformation);
+                    } else {
+                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: redClinicIcon}).bindPopup(popupInformation);
+                    }
+
                 } else {
-                    markerArray[i] = L.marker([store.position[1], store.position[0]]).bindPopup(popupInformation);
+                    if(store.is24Hours === "Y") {
+                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: greenIcon}).bindPopup(popupInformation);
+                    } else {
+                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: redIcon}).bindPopup(popupInformation);
+                    }
+
                 }
 
 			}
@@ -81,15 +91,34 @@
 
 		}
 
-        var clinicIcon = L.icon({
-            iconUrl: 'images/walgreens-healthcare-clinic.jpg',
-            iconRetinaUrl: 'images/walgreens-healthcare-clinic.jpg',
-            iconSize: [38, 38],
-            iconAnchor: [22, 37],
-            popupAnchor: [-3, -76],
-            shadowSize: [68, 95],
-            shadowAnchor: [22, 94]
+        var RedClinicIcon = L.Icon.Default.extend({
+            options: {
+                iconUrl: 'images/redClinic.jpg'
+            }
         });
+        var redClinicIcon = new RedClinicIcon();
+
+        var RedIcon = L.Icon.Default.extend({
+            options: {
+                iconUrl: 'images/redicon.jpg'
+            }
+        });
+        var redIcon = new RedIcon();
+
+        var GreenClinicIcon = L.Icon.Default.extend({
+            options: {
+                iconUrl: 'images/greenClinic.jpg'
+            }
+        });
+        var greenClinicIcon = new GreenClinicIcon();
+
+        var GreenIcon = L.Icon.Default.extend({
+            options: {
+                iconUrl: 'images/greenicon.jpg'
+            }
+        });
+        var greenIcon = new GreenIcon();
+
 
 		map.on('dragend', getPins);	
 		map.on('zoomend', getPins);
