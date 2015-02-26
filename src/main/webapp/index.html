@@ -67,7 +67,7 @@
 				store = data[i];
 				var popupInformation = "<b>" + store.address + "</b></br>" + store.phone + "</br>";
 
-				markerArray[i] = L.marker([store.position[1], store.position[0]], clinicIcon).bindPopup(popupInformation);
+				markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: clinicIcon}).bindPopup(popupInformation);
 			}
 
 
