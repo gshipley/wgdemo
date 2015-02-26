@@ -34,12 +34,12 @@ public class WalgreenStoreResource {
 
 	private Store populateStoreInformation(DBObject dataValue) {
 		Store theStore = new Store();
-		theStore.setName(dataValue.get("name"));
-		theStore.setPosition(dataValue.get("coordinates"));
+		theStore.setPosition(dataValue.get("pos"));
 		theStore.setId(dataValue.get("_id").toString());
-		theStore.setBallpark(dataValue.get("ballpark"));
-		theStore.setLeague(dataValue.get("league"));
-		theStore.setPayroll(dataValue.get("payroll"));
+        theStore.setAddress(dataValue.get("address"));
+        theStore.setHasClinic(dataValue.get("hasClinic"));
+        theStore.setIs24Hours(dataValue.get("24store"));
+        theStore.setPhone(dataValue.get("phone"));
 
 		return theStore;
 	}
@@ -83,7 +83,7 @@ public class WalgreenStoreResource {
 		BasicDBObject boxQuery = new BasicDBObject();
 		boxQuery.put("$box", boxList);
 
-		spatialQuery.put("coordinates", new BasicDBObject("$within", boxQuery));
+		spatialQuery.put("pos", new BasicDBObject("$within", boxQuery));
 		System.out.println("Using spatial query: " + spatialQuery.toString());
 
 		DBCursor cursor = walgreensStores.find(spatialQuery);

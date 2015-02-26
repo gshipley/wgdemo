@@ -1,59 +1,62 @@
 package org.openshift.walgreens.domain;
 
 public class Store {
-	private Object name;
-	private Object position;
+
 	private Object id;
-	private Object ballpark;
-	private Object payroll;
-	private Object league;
+    private Object position;
 
-	public Object getName() {
-		return name;
-	}
+    public Object getId() {
+        return id;
+    }
 
-	public void setName(Object name) {
-		this.name = name;
-	}
+    public void setId(Object id) {
+        this.id = id;
+    }
 
-	public Object getPosition() {
-		return position;
-	}
+    public Object getPosition() {
+        return position;
+    }
 
-	public void setPosition(Object position) {
-		this.position = position;
-	}
+    public void setPosition(Object position) {
+        this.position = position;
+    }
 
-	public Object getId() {
-		return id;
-	}
+    public Object getAddress() {
+        return address;
+    }
 
-	public void setId(Object id) {
-		this.id = id;
-	}
+    public void setAddress(Object address) {
+        this.address = address;
+    }
 
-	public Object getBallpark() {
-		return ballpark;
-	}
+    public Object getPhone() {
+        return phone;
+    }
 
-	public void setBallpark(Object ballpark) {
-		this.ballpark = ballpark;
-	}
+    public void setPhone(Object phone) {
+        this.phone = phone;
+    }
 
-	public Object getPayroll() {
-		return payroll;
-	}
+    public Object getHasClinic() {
+        return hasClinic;
+    }
 
-	public void setPayroll(Object payroll) {
-		this.payroll = payroll;
-	}
+    public void setHasClinic(Object hasClinic) {
+        this.hasClinic = hasClinic;
+    }
 
-	public Object getLeague() {
-		return league;
-	}
+    public Object getIs24Hours() {
+        return is24Hours;
+    }
 
-	public void setLeague(Object league) {
-		this.league = league;
-	}
+    public void setIs24Hours(Object is24Hours) {
+        this.is24Hours = is24Hours;
+    }
+
+    private Object address;
+    private Object phone;
+    private Object hasClinic;
+    private Object is24Hours;
+
 
 }
