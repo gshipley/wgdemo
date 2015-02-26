@@ -19,8 +19,8 @@
 		    font-family: 'oswald';
 		}
 		.leaflet-container .leaflet-control-zoom {
-		    margin-left: 13px;
-		    margin-top: 70px;
+		    margin-right: 13px;
+		    margin-bottom: 70px;
 		}
 		
 		
@@ -57,7 +57,6 @@
 			$.get(url, pinTheMap, "json")
 		}
 
-
 		function pinTheMap(data){
 			//clear the current pins
 			map.removeLayer(markerLayerGroup);
@@ -70,7 +69,8 @@
 
 				markerArray[i] = L.marker([store.position[1], store.position[0]]).bindPopup(popupInformation);
 			}
-			
+
+
     		
 			markerLayerGroup = L.layerGroup(markerArray).addTo(map);	
 
