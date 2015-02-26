@@ -6,7 +6,7 @@ dbsize=$(mongo -quiet $OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/$OPE
 if [[ $dbsize =~ "0" ]]
 then
 	#import the data
-	mongoimport --jsonArray -d $OPENSHIFT_APP_NAME -c stores --type json --file $OPENSHIFT_REPO_DIR/walgreens.json  -h $OPENSHIFT_MONGODB_DB_HOST --port $OPENSHIFT_MONGODB_DB_PORT -u admin -p $OPENSHIFT_MONGODB_DB_PASSWORD
+	mongoimport -d $OPENSHIFT_APP_NAME -c stores --type json --file $OPENSHIFT_REPO_DIR/walgreens.json  -h $OPENSHIFT_MONGODB_DB_HOST --port $OPENSHIFT_MONGODB_DB_PORT -u admin -p $OPENSHIFT_MONGODB_DB_PASSWORD
 
 	#make the 2D index
 	mongo $OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/$OPENSHIFT_APP_NAME --eval 'db.stores.ensureIndex( { pos : "2d" } );'
