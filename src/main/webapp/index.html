@@ -65,9 +65,9 @@
 			var markerArray = new Array(data.length)
 			for (var i = 0; i < data.length; i++){
 				store = data[i];
-				var popupInformation = "<b>" + store.address + "</b></br>";
+				var popupInformation = "<b>" + store.address + "</b></br>" + store.phone + "</br>";
 
-				markerArray[i] = L.marker([store.position[1], store.position[0]]).bindPopup(popupInformation);
+				markerArray[i] = L.marker([store.position[1], store.position[0]], clinicIcon).bindPopup(popupInformation);
 			}
 
 
@@ -76,6 +76,16 @@
 
 
 		}
+
+        var clinicIcon = L.icon({
+            iconUrl: 'images/walgreens-healthcare-clinic.jpg',
+            iconRetinaUrl: 'images/walgreens-healthcare-clinic.jpg',
+            iconSize: [38, 95],
+            iconAnchor: [22, 94],
+            popupAnchor: [-3, -76],
+            shadowSize: [68, 95],
+            shadowAnchor: [22, 94]
+        });
 
 		map.on('dragend', getPins);	
 		map.on('zoomend', getPins);
