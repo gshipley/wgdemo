@@ -65,7 +65,7 @@
 			var markerArray = new Array(data.length)
 			for (var i = 0; i < data.length; i++){
 				store = data[i];
-				var popupInformation = "<b>" + store.address + "</b></br>" + store.phone + "</br>" + store.hasClinic + "</br>";
+				var popupInformation = "<b>" + store.address + "</b></br>" + store.phone + "</br>Clinic:" + store.hasClinic + "</br>24Hours: " + store.is24Hours + "<\br>";
                 if(store.hasClinic === "Y") {
                     markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: clinicIcon}).bindPopup(popupInformation);
                 } else {
