@@ -38,7 +38,7 @@ public class WalgreenStoreResource {
 		theStore.setId(dataValue.get("_id").toString());
         theStore.setAddress(dataValue.get("address"));
         theStore.setHasClinic(dataValue.get("hasClinic"));
-        theStore.setIs24Hours(dataValue.get("24store"));
+        theStore.setIs24Hours(dataValue.get("24pharmacy"));
         theStore.setPhone(dataValue.get("phone"));
 
 		return theStore;
