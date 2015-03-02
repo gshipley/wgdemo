@@ -87,7 +87,7 @@ public class WalgreenStoreResource {
 		System.out.println("Using spatial query: " + spatialQuery.toString());
 
 
-		DBCursor cursor = walgreensStores.find(spatialQuery, 300);
+		DBCursor cursor = walgreensStores.find(spatialQuery).limit(300);
 		try {
 			while (cursor.hasNext()) {
 				allStoresList.add(this.populateStoreInformation(cursor.next()));
