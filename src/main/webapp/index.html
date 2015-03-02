@@ -66,21 +66,7 @@
 			for (var i = 0; i < data.length; i++){
 				store = data[i];
 				var popupInformation = "<b>" + store.address + "</b></br>" + store.phone + "</br>Has a Clinic: " + store.hasClinic + "</br>24 Hour Pharmacy: " + store.is24Hours;
-                if(store.hasClinic === "Y" ) {
-                    if(store.is24Hours === "Y") {
-                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: greenClinicIcon}).bindPopup(popupInformation);
-                    } else {
-                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: redClinicIcon}).bindPopup(popupInformation);
-                    }
-
-                } else {
-                    if(store.is24Hours === "Y") {
-                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: greenIcon}).bindPopup(popupInformation);
-                    } else {
-                        markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: redIcon}).bindPopup(popupInformation);
-                    }
-
-                }
+                markerArray[i] = L.marker([store.position[1], store.position[0]], {icon: greenIcon}).bindPopup(popupInformation);
 
 			}
 
