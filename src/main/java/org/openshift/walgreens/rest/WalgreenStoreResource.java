@@ -86,7 +86,8 @@ public class WalgreenStoreResource {
 		spatialQuery.put("pos", new BasicDBObject("$within", boxQuery));
 		System.out.println("Using spatial query: " + spatialQuery.toString());
 
-		DBCursor cursor = walgreensStores.find(spatialQuery);
+
+		DBCursor cursor = walgreensStores.find(spatialQuery, 300);
 		try {
 			while (cursor.hasNext()) {
 				allStoresList.add(this.populateStoreInformation(cursor.next()));
